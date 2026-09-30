@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#edf7fa">
+  <meta name="description" content="Skin Care 01 · rutina personal de cuidado facial, seguimiento, objetivos y modo playa.">
+  <title>Skin Care 01</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="assets/icon-192.png" alt="">
+        <div>
+          <h1>Skin Care 01</h1>
+          <p>Calmar · hidratar · proteger</p>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="Navegación principal">
+        <button class="nav-btn active" data-view="hoy"><span>⌂</span><b>Hoy</b></button>
+        <button class="nav-btn" data-view="rutina"><span>☀︎</span><b>Rutina</b></button>
+        <button class="nav-btn" data-view="productos"><span>◉</span><b>Productos</b></button>
+        <button class="nav-btn" data-view="objetivo"><span>◎</span><b>Objetivo</b></button>
+        <button class="nav-btn" data-view="progreso"><span>↗</span><b>Progreso</b></button>
+        <button class="nav-btn" data-view="playa"><span>☼</span><b>Playa</b></button>
+      </nav>
+
+      <div class="sidebar-note">
+        <strong>Fase 1</strong>
+        <span>Barrera + hidratación + fotoprotección. Sin añadir activos potentes todavía.</span>
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow" id="todayLabel">Hoy</div>
+          <h2 id="viewTitle">Tu rutina de hoy</h2>
+        </div>
+        <div class="top-actions">
+          <button class="ghost-btn" id="whatNowBtn">¿Qué me toca ahora?</button>
+          <button class="icon-btn" id="settingsBtn" aria-label="Ajustes">⚙</button>
+        </div>
+      </header>
+
+      <section id="view-hoy" class="view active"></section>
+      <section id="view-rutina" class="view"></section>
+      <section id="view-productos" class="view"></section>
+      <section id="view-objetivo" class="view"></section>
+      <section id="view-progreso" class="view"></section>
+      <section id="view-playa" class="view"></section>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Navegación móvil">
+    <button class="mobile-btn active" data-view="hoy">⌂<span>Hoy</span></button>
+    <button class="mobile-btn" data-view="rutina">☀︎<span>Rutina</span></button>
+    <button class="mobile-btn" data-view="productos">◉<span>Productos</span></button>
+    <button class="mobile-btn" data-view="objetivo">◎<span>Objetivo</span></button>
+    <button class="mobile-btn" data-view="progreso">↗<span>Progreso</span></button>
+    <button class="mobile-btn" data-view="playa">☼<span>Playa</span></button>
+  </nav>
+
+  <dialog id="whatNowDialog" class="dialog">
+    <button class="dialog-close" onclick="this.closest('dialog').close()">×</button>
+    <div id="whatNowContent"></div>
+  </dialog>
+
+  <dialog id="settingsDialog" class="dialog">
+    <button class="dialog-close" onclick="this.closest('dialog').close()">×</button>
+    <h3>Ajustes</h3>
+    <p class="muted">Las horas son orientativas. Puedes cambiarlas cuando quieras.</p>
+    <div class="form-grid">
+      <label>Rutina de mañana <input id="morningTime" type="time"></label>
+      <label>Rutina de noche <input id="nightTime" type="time"></label>
+      <label class="switch-row"><input id="outsideDaily" type="checkbox"><span>Suelo salir al exterior a diario</span></label>
+    </div>
+    <button class="primary-btn" id="saveSettings">Guardar ajustes</button>
+  </dialog>
+
+  <dialog id="photoDialog" class="dialog">
+    <button class="dialog-close" onclick="this.closest('dialog').close()">×</button>
+    <h3>Añadir foto de progreso</h3>
+    <p class="muted">Ideal: misma habitación, distancia, hora aproximada y sin filtros.</p>
+    <input id="progressPhotoInput" type="file" accept="image/*" capture="user">
+    <label class="field">Nota opcional
+      <input id="progressPhotoNote" type="text" placeholder="Ej. menos roja que la semana pasada">
+    </label>
+    <button class="primary-btn" id="savePhotoBtn">Guardar foto</button>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
